@@ -1,11 +1,9 @@
-bash 'Install java' do
-  code <<-EOH
-    cd /tmp &&
-    curl -Lo jdk-8-linux-x64.rpm --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.rpm
-    EOH
-  not_if { ::File.exist?('/tmp/jdk-8-linux-x64.rpm') }
+remote_file '#{Chef::Config[:file_cache_path]}/jdk-8-linux-x64.rpm' do
+  source 'https://packages.wazuh.com/java/jdk-8-linux-x64.rpm'
+  action :create
 end
 
 rpm_package 'Oracle Java' do
- source '/tmp/jdk-8-linux-x64.rpm'
+ source '#{Chef::Config[:file_cache_path]}/jdk-8-linux-x64.rpm'
 end
+
