@@ -1,0 +1,15 @@
+DEPENDENCIES
+  wazuh
+    path: .
+    metadata: true
+  wazuh_el
+    path: ../wazuh_el
+  wazuh_filebeat
+    path: ../wazuh_filebeat
+
+GRAPH
+  wazuh (0.0.1)
+  wazuh_el (0.0.1)
+  wazuh_filebeat (0.1.0)
+    yum (>= 0.0.0)
+  yum (5.0.1)

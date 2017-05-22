@@ -1,0 +1,5 @@
+source 'https://supermarket.chef.io'
+
+cookbook 'wazuh_filebeat', path: '../wazuh_filebeat'
+cookbook 'wazuh_el', path: '../wazuh_el'
+metadata
